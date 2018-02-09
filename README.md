@@ -63,12 +63,11 @@ GET `/account/:userId/balance`
 }
 ```
  
-PUT `/account/deposit`
+PUT `/account/:userId/deposit`
  - This endpoint adds funds to an existing account
  - Expected body object: 
 ```
   {
-    userId: Number, // Unique Identifer
     type: String, // type of account 'checking' or 'saving'
     amount: Number, // 3000, 105.23
     currency: String, // 'USD', 'EUR'
@@ -80,7 +79,6 @@ PUT `/account/:userId/withdraw`
  - Expected body object:
 ```
   {
-    userId: Number, // Unique Identifer
     type: String, // type of account 'checking' or 'saving'
     amount: Number, // 3000, 105.23
     currency: String, // 'USD', 'EUR'
