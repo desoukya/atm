@@ -75,7 +75,7 @@ PUT `/account/:userId/deposit`
   }
 ```
 PUT `/account/:userId/withdraw`
- - This endpoint removes funds to an existing account
+ - This endpoint removes funds from an existing account
  - Expected body object:
 ```
   {
