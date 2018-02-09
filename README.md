@@ -49,7 +49,19 @@ You are tasked with creating a node.js backend server to handle ATM deposit/with
 The API is expected to support the following endpoints:
 
 GET `/account/:userId/balance`
- - Fetch the total balance
+ - Fetch the total balance for all accounts
+```
+{
+  checking: {
+    amount: Number, // 3000, 105.23
+    currency: String, // 'USD', 'EUR'
+  },
+  saving: {
+    amount: Number, // 3000, 105.23
+    currency: String, // 'USD', 'EUR'  
+  }
+}
+```
  
 PUT `/account/deposit`
  - This endpoint adds funds to an existing account
