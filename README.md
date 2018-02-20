@@ -1,94 +1,59 @@
-# Node.js ATM Deposit/Withdraw Server
+# Node.js ATM Deposit/Withdraw Server - Challenge #2
 
-You are tasked with creating a node.js backend server to handle ATM deposit/withdraw transactions. All data should be persisted in a MongoDB. The following data should be used to seed your database on startup:
+In this challenge, you are requested to integrate authentication using passportjs. The scope of this challenge includes developing a login, registration, and home view using React. In addition, you must create API endpoints to register/login.
 
-`USERS COLLECTION`
+The only authentication method you are required to support is username/password. 
+
+The registration view should capture the following fields:
+- First Name
+- Last Name
+- Email Address
+- Account Type
+
+*Upon user submission, the following payload should be posted to the `/register` endpoint:
+
 ```
-[
-  {
-    userId: 1,
-    firstName: 'Amr',
-    lastName: 'Desouky'
-   }, {
-    userId: 2,
-    firstName: 'Ernie',
-    lastName: 'Casilla'
-   },  {
-    userId: 3,
-    firstName: 'Ben',
-    lastName: 'Sammons'
-   }
-]
+{
+  firstName,
+  lastName,
+  username,
+  email
+  accounts: ['checking', 'saving'] // assume all new accounts will be of type USD
+}
 ```
 
-`ACCOUNTS COLLECTION`
+The login view should capture the following fields:
+- Username
+- Password
+
+*Upon user submission, the following payload should be posted to the `/login` endpoint:
+
 ```
-[
-  {
-    type: 'Checking'
-    userId: 1,
-    amount: 300.00
-    currency: 'USD'
-    timestamp: Date.now()
-   }, {
-    type: 'Checking'
-    userId: 2,
-    amount: 300.00
-    currency: 'EUR'
-    timestamp: Date.now()
-   },  {
-    type: 'Saving'
-    userId: 3,
-    amount: 300.00
-    currency: 'USD'
-    timestamp: Date.now()
-   }
-]
+{
+  username
+  password
+}
 ```
+
+The home view should show the following fields:
+- Account Information
+- Account Balance
+- Logout Button
 
 The API is expected to support the following endpoints:
 
-GET `/account/:userId/balance`
- - Fetch the total balance for all accounts
-```
-{
-  checking: {
-    amount: Number, // 3000, 105.23
-    currency: String, // 'USD', 'EUR'
-  },
-  saving: {
-    amount: Number, // 3000, 105.23
-    currency: String, // 'USD', 'EUR'  
-  }
-}
-```
+POST `/register`
+ - Create a new user
+ - Insert documents in user/accounts collection
+ - Render Home view
  
-PUT `/account/:userId/deposit`
- - This endpoint adds funds to an existing account
- - Expected body object: 
-```
-  {
-    type: String, // type of account 'checking' or 'saving'
-    amount: Number, // 3000, 105.23
-    currency: String, // 'USD', 'EUR'
-    timestamp: Date // Use Native JS function Date.now() to return a UTC timestamp
-  }
-```
-PUT `/account/:userId/withdraw`
- - This endpoint removes funds from an existing account
- - Expected body object:
-```
-  {
-    type: String, // type of account 'checking' or 'saving'
-    amount: Number, // 3000, 105.23
-    currency: String, // 'USD', 'EUR'
-    timestamp: Date // Use Native JS function Date.now() to return a UTC timestamp
-  }
-```
+POST `/login`
+ - Authenticate user
+ - Render Home view
+ 
+Post `/logout`
+ - Logout current user
 
 ## Submission Instructions
 Submit a PR with the following name:
-{your_first_name}/api
-
-## Extra Credit
-Deploy your app to AWS and database to mLab.
+{your_first_name}/challenge-2
