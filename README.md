@@ -17,7 +17,8 @@ The registration view should capture the following fields:
   firstName,
   lastName,
   username,
-  email
+  password,
+  email,
   accounts: ['checking', 'saving'] // assume all new accounts will be of type USD
 }
 ```
