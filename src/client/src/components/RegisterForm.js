@@ -46,7 +46,7 @@ export default class RegisterForm extends React.Component {
 	}
 
 	getUnavailableUsernames() {
-		console.log('')
+		// TODO fetch list of usernames already in use to validate availability as user types in a username
 	}
 
 	handleChange(event) {
