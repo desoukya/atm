@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 let express = require('express');
-let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let expressValidator = require('express-validator');
 let session = require('express-session');
@@ -29,8 +28,6 @@ mongoose.connect(MONGO_URI, (err, database) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-
 
 app.use(session({
   secret: 'secret',
