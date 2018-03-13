@@ -4,7 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { ValidatorForm } from 'react-form-validator-core';
 import { TextValidator } from 'react-material-ui-form-validator';
 import request from 'superagent';
-// import bcrypt from 'bcrypt';
 
 const registerUrl = 'http://localhost:3001/users/register';
 const nameRegex = '^[a-zA-Z][a-zA-Z -]{0,30}$';

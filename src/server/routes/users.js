@@ -8,20 +8,6 @@ let Account = require('../models/Account');
 let common = require('../commonFunctions');
 let authenticatedRequest = common.authenticatedRequest;
 
-// router.use('/', (req, res, next) => {
-//   // if(req.isAuthenticated()) {
-//   //   console.log('logged in');
-//   //   next();
-//   // } else {
-//   //   console.log('not logged in');
-//   // }
-//   next();
-// });
-
-router.get('/register', (req, res) => {
-  // TODO get list of unavailable usernames and send to app ???
-});
-
 router.post('/register', (req, res) => {
   req.checkBody('firstName', 'First name is required').notEmpty();
 	req.checkBody('lastName', 'Last name is required').notEmpty();
@@ -111,8 +97,7 @@ passport.deserializeUser((id, done) => {
 });
 
 router.post('/login', 
-  passport.authenticate('local'/*, 
-    {successRedirect: '/pass', failureRedirect:'/fail'}*/), 
+  passport.authenticate('local'), 
     (req, res) => {
       const _id = req.user._id;
       const firstName = req.user.firstName;
@@ -125,7 +110,6 @@ router.post('/login',
       res.send(userObject);
 });
 
-// Below might not work as intended, needs testing
 router.get('/logout', (req, res) => {
   console.log('first');
   if(authenticatedRequest(req)) {

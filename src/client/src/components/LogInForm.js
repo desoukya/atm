@@ -3,7 +3,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { ValidatorForm } from 'react-form-validator-core';
 import { TextValidator} from 'react-material-ui-form-validator';
 import request from 'superagent';
-// import bcrypt from 'bcrypt';
 
 const loginUrl = 'http://localhost:3001/users/login';
 const usernameRegex = '^[a-zA-Z0-9_-]{3,16}$';
@@ -21,12 +20,6 @@ export default class LogInForm extends React.Component {
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	componentWillMount() {
-		// ValidatorForm.addValidationRule('isCorrectPassword', () => {
-		// 	return this.state.isCorrectPassword;
-		// });
 	}
 
 	handleChange(event) {
