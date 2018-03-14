@@ -5,8 +5,6 @@ let LocalStrategy = require('passport-local').Strategy;
 let User = require('../models/User');
 let Counter = require('../models/Counter');
 let Account = require('../models/Account');
-let common = require('../commonFunctions');
-let authenticatedRequest = common.authenticatedRequest;
 
 router.post('/register', (req, res) => {
   req.checkBody('firstName', 'First name is required').notEmpty();
@@ -112,7 +110,7 @@ router.post('/login',
 
 router.get('/logout', (req, res) => {
   console.log('first');
-  if(authenticatedRequest(req)) {
+  if(req.isAuthenticated()) {
     req.logout();
 
     req.send('success - you re logged out');
