@@ -9,7 +9,7 @@ const styles = {
   }
 };
 
-export default class AtmAppBar extends React.Component {
+export default class AtmAppBar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

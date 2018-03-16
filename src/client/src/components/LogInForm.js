@@ -8,7 +8,7 @@ const loginUrl = 'http://localhost:3001/users/login';
 const usernameRegex = '^[a-zA-Z0-9_-]{3,16}$';
 const passwordRegex = '^[a-zA-Z0-9_-]{0,20}$';
 
-export default class LogInForm extends React.Component {
+export default class LogInForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

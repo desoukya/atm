@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import AppBar from 'material-ui/AppBar';
 import HomePage from './components/HomePage';
 import LogInForm from './components/LogInForm';
 import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
-import RaisedButton from 'material-ui/RaisedButton';
 import Card from 'material-ui/Card';
 
 import AtmAppBar from './components/AtmAppBar';

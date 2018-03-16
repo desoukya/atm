@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class LogInForm extends React.Component {
+export default class LogInForm extends Component {
 	constructor() {
 		super();
 		this.state = {

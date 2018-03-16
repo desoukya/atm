@@ -5,7 +5,7 @@ const appBarButtonStyle = {
   margin: 12,
 };
 
-export default class LogInMenuButtons extends React.Component {
+export default class LogInMenuButtons extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

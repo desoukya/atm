@@ -17,7 +17,7 @@ const styles = {
 	}
 };
 
-export default class RegisterForm extends React.Component {
+export default class RegisterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -63,8 +63,8 @@ export default class RegisterForm extends React.Component {
 			});
 
 			const accounts = [];
-			this.state.checkingChecked ? accounts.push('checking') : null;
-			this.state.savingsChecked  ? accounts.push('saving') : null;
+			if(this.state.checkingChecked) accounts.push('checking');
+			if(this.state.savingsChecked) accounts.push('saving');
 
 			const payload = {
 				firstName : this.state.firstName,

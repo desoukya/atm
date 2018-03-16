@@ -3,7 +3,7 @@ import request from 'superagent';
 
 const getAccountUrl = 'http://localhost:3001/accounts';
 
-export default class Dashboard extends React.Component {
+export default class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
