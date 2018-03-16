@@ -109,11 +109,10 @@ router.post('/login',
 });
 
 router.get('/logout', (req, res) => {
-  console.log('first');
   if(req.isAuthenticated()) {
     req.logout();
 
-    req.send('success - you re logged out');
+    req.send(`success - you're logged out`);
   }
 });
 

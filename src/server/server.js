@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 let express = require('express');
+let cors = require('cors');
 let bodyParser = require('body-parser');
 let expressValidator = require('express-validator');
 let session = require('express-session');
@@ -29,10 +30,11 @@ mongoose.connect(MONGO_URI, (err, database) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(session({
   secret: 'secret',
   saveUninitialized: true,
-  resave: true
+  resave: false
 }));
 
 app.use(passport.initialize());

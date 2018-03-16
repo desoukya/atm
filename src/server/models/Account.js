@@ -33,3 +33,20 @@ module.exports.getBankAccounts = (uid) => {
 		});
   });
 };
+
+module.exports.modifyFunds = (uid, accountType, amount, modifier) => {
+  return new Promise((resolve, reject) => {
+    const query = {uid: uid, type: accountType};
+    const update = {
+      $inc: {amount: amount * modifier},
+      $set: {timestamp: Date.now()}
+    };
+
+    Account.update(query, update, (error, result) => {
+      if(error) {
+				reject(error);
+			}
+			resolve(result);
+    });
+  });
+};

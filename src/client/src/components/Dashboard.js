@@ -12,11 +12,12 @@ export default class Dashboard extends React.Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		const payload = {_uid: this.state.user._id}
 		request.get(`${getAccountUrl}/${this.state.user._id}/balance`)
 		.set('Content-Type', 'application/json')
 		.send(payload)
+		.withCredentials()
 		.end((err, res) => {
 			if(err) {
 				console.log(err);
@@ -26,9 +27,7 @@ export default class Dashboard extends React.Component {
 				res.body.forEach(account => {
 					tempAccountArray.push(account);
 				});
-				this.setState({accounts : tempAccountArray}, () => {
-					console.log(this.state.accounts);
-				});
+				this.setState({accounts : tempAccountArray});
 			}
 		});
 	}
