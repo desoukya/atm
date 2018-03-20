@@ -8,6 +8,8 @@ let session = require('express-session');
 let passport = require('passport');
 let mongoose = require('mongoose');
 let MONGO_URI = process.env.MONGO_URI_LOCAL;
+let pg = require('pg');
+let POSTGRES_URI = process.env.POSTGRES_URI_LOCAL;
 let PORT = process.env.PORT || 3001;
 let routes = require('./routes/index');
 let users = require('./routes/users');
@@ -21,6 +23,8 @@ mongoose.connect(MONGO_URI, (err, database) => {
 	}
 	db = database;
 });
+
+// pg.connect
 
 // May want to implement server side rendering in the future
 // app.set('views', path.join(__dirname, 'Compontents'));
